@@ -4,8 +4,8 @@ from math import sqrt
 
 
 def factor():
-    with open(argv[1]) as p:
-        for line in p:
+    with open(argv[1]) as f:
+        for line in f:
             num = int(line)
             print("{:d}=".format(num), end="")
             if num % 2 == 0:
@@ -14,11 +14,11 @@ def factor():
             sqn = int(sqrt(num))
             if sqn % 2 == 0:
                 sqn += 1
-            for q in range(3, sqn + 1, 2):
-                if num % q == 0:
-                    print("{}*{}".format(q, num//q))
+            for i in range(3, sqn + 1, 2):
+                if num % i == 0:
+                    print("{}*{}".format(i, num//i))
                     break
-            if num % q != 0:
+            if num % i != 0:
                 print("{}={}*1".format(num, num))
 
-    factor()
+factor()
